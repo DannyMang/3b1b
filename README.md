@@ -2,6 +2,8 @@ generative coding model trained to ONLY generate 3B1B videos using https://githu
 
 update: we will use community edition found at https://github.com/ManimCommunity/manim/ since community version looks more polished
 
+- ALL OF GRANT"S VIDEO CODE CAN BE FOUND : https://github.com/3b1b/videos
+
 # April 28, 2025
 - lets try finetuning a model to see how good it performs 
 
