@@ -14,4 +14,4 @@ update: we will use community edition found at https://github.com/ManimCommunity
 - https://docs.unsloth.ai/get-started/fine-tuning-guide
 
 - current goal build dataset to finetune on 
-- we will be using qwen 14b just because alibaba >>>>
+- we will be using qwen 3, 14b just because alibaba >>>>
