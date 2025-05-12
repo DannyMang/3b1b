@@ -1,10 +1,11 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChevronRight, Code, Lightbulb, Play, Sigma, Sparkles, Zap } from "lucide-react"
+import AnimatedMathBackground from "@/components/AnimatedMathBackground"
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col dark bg-black text-white">
       <header className="sticky top-0 z-40 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
           <div className="flex gap-2 items-center text-xl font-bold">
@@ -39,16 +40,13 @@ export default function LandingPage() {
         </div>
       </header>
       <main className="flex-1">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-gradient-to-b from-background to-blue-50">
+        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative overflow-hidden bg-black">
+          <AnimatedMathBackground />
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
-                  <div className="inline-flex items-center rounded-lg bg-blue-100 px-3 py-1 text-sm">
-                    <Sparkles className="mr-1 h-4 w-4" />
-                    <span>Introducing ManimText</span>
-                  </div>
-                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
+                  <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-blue-400">
                     Transform Text to Beautiful Math Animations
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -93,7 +91,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="demo" className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+        <section id="demo" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -101,7 +99,7 @@ export default function LandingPage() {
                   <Play className="mr-1 h-4 w-4" />
                   <span>See It In Action</span>
                 </div>
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-400">
                   Watch ManimText Transform Your Ideas
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -125,11 +123,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="features" className="w-full py-12 md:py-24 lg:py-32">
+        <section id="features" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">Powerful Features</h2>
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-400">Powerful Features</h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Everything you need to create stunning mathematical animations
                 </p>
@@ -173,7 +171,7 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-blue-50">
+        <section id="how-it-works" className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12">
               <div className="flex flex-col justify-center space-y-4">
@@ -182,7 +180,7 @@ export default function LandingPage() {
                     <Code className="mr-1 h-4 w-4" />
                     <span>How It Works</span>
                   </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                  <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-400">
                     From Text to Animation in 3 Simple Steps
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
@@ -264,11 +262,11 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-24 lg:py-32 bg-black">
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-400">
                   Ready to Create Beautiful Math Animations?
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
