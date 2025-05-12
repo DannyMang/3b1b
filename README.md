@@ -27,7 +27,7 @@ Key Components:
 
 Frontend: React/Next.js application hosted on Vercel or Netlify
 API Gateway: AWS API Gateway or Cloudflare Workers
-Authentication: Auth0 or Clerk for secure user authentication
+Authentication: Auth0 or Supabase for secure user authentication
 LLM Service: Containerized Qwen3 model on AWS ECS/EKS or GCP Cloud Run
 Rendering Service: Service that takes generated Manim code and renders videos
 Database: MongoDB or PostgreSQL for storing user data and generated content
