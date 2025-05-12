@@ -32,9 +32,11 @@ export default function LandingPage() {
               >
                 Docs
               </Link>
-              <Button variant="default" size="sm">
-                Get Started
-              </Button>
+              <Link href="/signin">
+                <Button variant="default" size="sm">
+                  Get Started
+                </Button>
+              </Link>
             </nav>
           </div>
         </div>
@@ -100,7 +102,7 @@ export default function LandingPage() {
                   <span>See It In Action</span>
                 </div>
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-blue-400">
-                  Watch ManimText Transform Your Ideas
+                  Watch Text2Manim Transform Your Ideas
                 </h2>
                 <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   From simple text commands to beautiful mathematical animations in seconds
@@ -290,14 +292,14 @@ export default function LandingPage() {
         <div className="container flex flex-col items-center justify-between gap-4 md:flex-row md:gap-0">
           <div className="flex items-center gap-2 text-lg font-semibold">
             <Sigma className="h-5 w-5 text-primary" />
-            <span>ManimText</span>
+            <span>Text2Manim</span>
           </div>
           <p className="text-center text-sm text-muted-foreground md:text-left">
-            © {new Date().getFullYear()} ManimText. All rights reserved.
+            © {new Date().getFullYear()} made with ❤️ by <a href="https://x.com/danielung19" target="_blank" rel="noopener noreferrer">daniel ung</a>
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
-              Terms
+              Terms 
             </Link>
             <Link href="#" className="text-sm text-muted-foreground hover:text-foreground">
               Privacy
