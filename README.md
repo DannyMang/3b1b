@@ -160,22 +160,3 @@ Since she's on a free tier, she sees an upgrade prompt but also gets a watermark
 She decides to upgrade to the Educational tier for her classroom
 After payment, she can export the animation in HD without watermarks
 She receives the animation and code, which she can modify for future lessons
-
-Marketing Strategy
-
-Content Marketing: Create educational blogs about using animations in teaching
-Social Media: Showcase impressive animations on Twitter, YouTube, and TikTok
-Educational Partnerships: Partner with educational platforms and curriculum providers
-Developer Relations: Engage with the Manim and Python communities
-Email Marketing: Send newsletters with animation tips and updates
-SEO: Optimize for keywords related to educational animations and Manim
-
-Conclusion and Next Steps
-Your Manim AI product has strong potential across both developer and educational markets. By focusing on security, usability, and value creation, you can build a sustainable business.
-Immediate next steps:
-
-Create detailed technical specifications
-Build a minimal viable product (MVP)
-Gather early user feedback
-Iterate on security and UX
-Scale gradually based on demand
