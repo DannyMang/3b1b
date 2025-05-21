@@ -46,7 +46,7 @@ Regular Audits: Conduct security audits of your infrastructure
 UX/UI Design for Your Target Audiences
 Product will serve two main audiences:
 1. Developers
-Developers want control, documentation, and efficiency.
+
 Key UX Elements:
 
 Clean, minimalist interface with code view options
@@ -65,38 +65,6 @@ Curriculum integration examples
 Ability to save and organize projects by subject/lesson
 Collaboration features for team teaching
 Export formats compatible with classroom presentation software
-
-Product Revenue Model
-I recommend a tiered approach:
-1. Free Tier
-
-Limited number of generations per month
-Basic animation capabilities
-Watermarked videos
-Community access
-
-2. Professional Tier ($19.99/month)
-
-Unlimited generations
-Advanced animation capabilities
-No watermarks
-Priority rendering
-API access with rate limits
-Export in multiple formats
-
-3. Enterprise Tier ($99.99/month or custom pricing)
-
-Everything in Professional
-Dedicated API resources
-Higher rate limits
-Custom integrations
-Priority support
-Team collaboration features
-
-4. Educational Discount
-
-50% off for verified educators
-Special school/district pricing
 
 Technical Implementation Roadmap
 Phase 1: MVP (2-3 months)
@@ -145,18 +113,3 @@ Cloud Provider: AWS, GCP, or Azure
 CI/CD: GitHub Actions or GitLab CI
 Monitoring: Datadog or Prometheus + Grafana
 Security: AWS WAF, CloudFlare, or Akamai
-
-User Journey Example
-For a teacher named Sarah creating a physics animation:
-
-Sarah visits your landing page and sees examples of physics animations
-She signs up for a free account using her school email
-She's presented with template options and selects "Physics Concepts"
-She enters a prompt: "Create an animation showing how a pendulum's period relates to its length"
-The system generates Manim code and renders a preview
-Sarah can tweak parameters and regenerate if needed
-She previews the animation and decides to export it
-Since she's on a free tier, she sees an upgrade prompt but also gets a watermarked version
-She decides to upgrade to the Educational tier for her classroom
-After payment, she can export the animation in HD without watermarks
-She receives the animation and code, which she can modify for future lessons
