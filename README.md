@@ -2,6 +2,13 @@ generative coding model trained to ONLY generate 3B1B videos using https://githu
 
 update: we will use community edition found at https://github.com/ManimCommunity/manim/ since community version looks more polished
 
+CURRENT GOALS:
+- clean up dataset
+- prevent usage of llm with other irrelevant queries (perhaps refinetune)
+- look into other training techniques that may improve performance
+- how can we measure performance metrics of the model?
+- ensure output provides synthatically correct code
+
 - ALL OF GRANT"S VIDEO CODE CAN BE FOUND : https://github.com/3b1b/videos
 
 # April 28, 2025
