@@ -9,6 +9,11 @@ CURRENT GOALS:
 - how can we measure performance metrics of the model?
 - ensure output provides synthatically correct code
 
+
+
+
+
+
 - ALL OF GRANT"S VIDEO CODE CAN BE FOUND : https://github.com/3b1b/videos
 
 # April 28, 2025
