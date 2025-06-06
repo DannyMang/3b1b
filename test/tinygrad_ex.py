@@ -1,2 +1,0 @@
-from ../../tinygrad import Tensor
-

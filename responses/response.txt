@@ -1,0 +1,307 @@
+(mlclub) (base) danielung@daniels-mbp-6 3b1bProj % /Users/danielung/miniconda3/envs/mlclub/bin/python /Users/danielung/Desktop/projects/3b1bProj/3b1b/inference.py
+Sending prompt: Create a manim animation of a transformer architecture
+Error: Error code: 401 - {'error': {'message': 'Incorrect API key provided: hf_PQolX*************************GLDP. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+(mlclub) (base) danielung@daniels-mbp-6 3b1bProj % /Users/danielung/miniconda3/envs/mlclub/bin/python /Users/danielung/Desktop/projects/3b1bProj/3b1b/inference.py
+Sending prompt: Create a manim animation of a transformer architecture
+
+Response:
+<think>
+
+</think>
+
+class TransformerArchitecture(Scene):
+    def construct(self):
+        title = Text("Transformer Architecture", font_size=48)
+        title.to_edge(UP)
+        self.play(Write(title))
+        self.wait(2)
+        
+        layers = [
+            ("Input Layer", END, Dot(get_colors()[0])),
+            ("Embedding Layer", END, get_colors()[1]),
+            ("Positional Encoding", END, get_colors()[2]),
+            ("Attention", END, get_colors()[3]),
+            ("Multi-Head Attention", END, get_colors()[4]),
+            ("Feed Forward Network", END, get_colors()[5]),
+            ("Output Layer", END, get_colors()[6]),
+            ("Softmax", END, get_colors()[7])
+        ]
+        
+        layer_boxes = []
+        for i, (name, direction, color) in enumerate(layers):
+            box = Rectangle(height=1, width=4, color=color, fill_opacity=0.25)
+            label = Text(name, font_size=24)
+            
+            # Assign widths for consistent spacing
+            if name == "Multi-Head Attention":
+                box.set_width(6.0)
+                label.set_x(box.x)
+                
+            label.move_to(box)
+            
+            layer_boxes.append((box, name, label))
+        
+        # Create vertical column of layers
+        layer_group = Group(*[layer[0] for layer in layer_boxes])
+        layer_group.arrange(DOWN, aligned_edge=LEFT, buff=1.0)
+        layer_group.set_width(7)
+        layer_group.center().shift(LEFT * 2.0)
+                
+        self.play(Create(layer_group))
+        self.wait(1)
+        
+        # Now place layer numbers
+        numbers = VGroup(*[Text(str(i+1), color=GREY_B, font_size=24) for i in range(len(layers))])
+        for box, num in zip(layer_boxes, numbers):
+            num.move_to(box, UL)
+            
+        self.play(LaggedStartMap(FadeIn, numbers, lag_ratio=0.3))
+        self.wait(1)
+        
+        # Add customer to the screen (simplified)
+        person_locals = [
+            DocPrivates(
+                "Matthew Sualság",
+                "Budapest, Hungary",
+                "BY:END",
+                start=11, surrounder_color=BLACK
+            ),
+            DocPrivates(
+                "Sandro",
+                "Budapest, Hungary",
+                None,
+                start=22, surrounder_color=BLACK
+            )
+        ]
+        
+        person_locals.move_to(DOWN + RIGHT * 4)
+        
+        self.play(Write(person_locals))
+        self.wait(1)
+        
+        # Add explanation rectangles
+        rects = VGroup()
+        
+        attention_rect = SurroundingRectangle(layer_boxes[3][2], buff=0.1)
+        attention_rect.set_stroke(ORANGE, 2)
+        rects.add(attention_rect)
+        
+        self.play(Create(attention_rect))
+        self.wait(1)
+        
+        label = Text("Scaled Dot Product Attention")
+        label.next_to(attention_rect, UP, buff=0.5, aligned_edge=LEFT)
+        self.play(Write(label))
+        self.wait(2)
+        
+        # Add QKV vectors
+        QKV_values = ["[0.12, 0.23, 0.87]",
+                      "[0.67, 0.43, 0.11]",
+                      "[0.89, 0.22, 0.11]"]
+        
+        qkv_labels = [
+            Text("Query", font_size=30),
+            Text("Key", font_size=30),
+            Text("Value", font_size=30)
+        ]
+        
+        qkv_boxes = [Square(side_length=1.2, fill_color=c, fill_opacity=0.3, stroke_width=2) for c in get_colors()]
+        
+        qkv_group = Group()
+        for label, box, value in zip(qkv_labels, qkv_boxes, QKV_values):
+            box.set_fill(opacity=0.5)
+            box.shadow(radius=0.25)
+            label.next_to(box, UP, buff=0.2)
+            q = Text(f"q = {value}", font_size=24)
+            q.set_color(get_colors()[0])
+            q.next_to(label, UP, buff=0.2)
+            
+            qkv_group.add(label, box, q)
+        
+        qkv_group.arrange(RIGHT, buff=0.5, aligned_edge=DOWN)
+        
+        self.play(TransformFromCopy(attention_rect, qkv_group, run_time=2))
+        self.wait()
+        
+        qkv_dots = [
+            Dot(ORIGIN),
+            Dot(RIGHT * 1.5),
+            Dot(RIGHT * 4)
+        ]
+        
+        lines = VGroup()
+        for i in range(len(qkv_dots)-1):
+            l = Line(
+                start=qkv_dots[i].get_center(),
+                end=qkv_dots[i+1].get_center(),
+                stroke_width=8,
+                stroke_color=GREY_B,
+            )
+            lines.add(l)
+        
+        self.play(Create(lines), run_time=1)
+        self.wait(1)
+        
+        # Attention Step-by-step
+        input_sentences = [
+            ["Hi!", "How do I ask for help?", "Where do I go next?"],
+            ["Hi!", "Im stuck here.", "Where is the help desk?"],
+            ["Hi!", "Can you read this?", "Thank you for your time."],
+        ]
+        
+        self.play(FadeTransform(person_locals.copy(), qkv_group))
+        self.remove(person_locals)
+        
+        self.embed()
+
+
+class WordPredictor(Scene):
+    def construct(self):
+        # Create a ruler that measures minutes
+        ruler_lines = VGroup()
+        
+        time_labels = [
+            f"\\Large 8:0{num}" for num in range(2)
+        ]
+        
+        for i, label in enumerate(time_labels):
+            line = Line(
+                LEFT * 5 + i * WIDTH / 2, RIGHT * 5,
+                color=GREY
+            ).add_tip()
+            line.set_stroke(WHITE, 3)
+            ruler_lines.add(line)
+
+        ruler = VGroup(ruler_lines, *(Text(t, font_size=36) for t in time_labels))
+        ruler.arrange(DOWN, aligned_edge=LEFT, buff=0.1)
+        ruler.to_corner(UP + LEFT)
+        self.add(ruler, WordPredictor())
+
+        # Create some questions with time stamps
+        questions = [
+            Text("What was that last thing he said?"),
+            Text("What was that \\textcolor{red}{iron}?"),
+            Text("Do you know what it is?"),
+            Text("What theme park is he talking about?"),
+            Text("How do I ask for help?"),
+            Text("Where is the help desk?"),
+            Text("Where do I go next?"),
+            Text("Can you read this?"),
+            Text("Thank you for your time.")
+        ]
+
+        # Scene title
+        title = Text("Worlds Best QAs", font_size=48)
+        title.to_corner(UR)
+        self.play(Write(title))
+
+        # QA with answers
+        qas = Group()
+        for i, q in enumerate(questions):
+            q[0].set_color(BLUE_B)
+            q.keyword = q[2]
+            q[2].set_color(greens[i])
+            q.greens = greyscale(greens[i])
+            q.add(q.keyword)
+            q.add(DatumText("Lower Decks"))
+            q.add(DatumText("0", insert_newlines=True))
+            q.copy().match_style(q.keyword).save_state().set_opacity(0)
+            qas.add(q)
+
+        # Old QA
+        old_qa = qas[:4]
+        new_qa = qas.copy()
+        old_qa[:3].save_state().set_opacities([0.5, 0.2, 1])
+
+        # Move to new line
+        new_qa[1].align(new_qa[0], LEFT)
+        new_qa[2].align(new_qa[1], LEFT)
+        new_qa[3].align(new_qa[2], LEFT)
+        self.add(*new_qa[:3])
+        self.play(
+            DrawerPredecessorAnimation(new_qa),
+            Wait(1.2),
+            # ToolbarAnimation("undo"),
+            ApplyMethod(
+                qas[:4].set_y(
+                    siprogram.channels[1].y,
+                    about_edge=siprogram.channels[1].y - 2,
+                    path_arc=80 * DEGREES
+                ), rate_func=squish_rate_func(smooth, np.clip(0.33, -0.2, 1.0)),
+            ),
+            run_time=4,
+        )
+
+        self.embed()
+
+
+class ErrorScene(Scene):
+    def construct(self):
+        colors = [BLUE_B, GREEN, RED, BLUE, YELLOW, BLUE]
+        dots = Group()
+        for x in np.linspace(-10, 10, 100):
+            dots.add(Dot(ORIGIN + 0.25 * RIGHT + np.random.gauss(0, 0.05) * DOWN + np.random.gauss(0, 0.05) * RIGHT))
+
+        nums = Group()
+        for j, color in enumerate(colors):
+            num = Integer(10 * np.random.randint(0, 9, size=(len(dots),)) + j)
+            num.match_x(dots[0])
+            num.match_y(dots[0])
+            nums.add(num)
+
+        self.add(nums)
+        self.add(dots)
+
+
+
+
+Manim Community v0.19.0
+
+[05/16/25 14:50:14] INFO     Animation 0 : Partial movie file written in               scene_file_writer.py:588
+                             '/Users/danielung/Desktop/projects/3b1bProj/media/videos/                         
+                             temp_animation_20250516_145010/1080p60/partial_movie_file                         
+                             s/TransformerArchitecture/3529212410_4272520837_223132457                         
+                             .mp4'                                                                             
+[05/16/25 14:50:15] INFO     Animation 1 : Partial movie file written in               scene_file_writer.py:588
+                             '/Users/danielung/Desktop/projects/3b1bProj/media/videos/                         
+                             temp_animation_20250516_145010/1080p60/partial_movie_file                         
+                             s/TransformerArchitecture/3040924799_2844360058_371735186                         
+                             7.mp4'                                                                            
+╭─────────────────────────────── Traceback (most recent call last) ────────────────────────────────╮
+│ /Users/danielung/miniconda3/envs/mlclub/lib/python3.11/site-packages/manim/cli/render/commands.p │
+│ y:125 in render                                                                                  │
+│                                                                                                  │
+│   122 │   │   │   try:                                                                           │
+│   123 │   │   │   │   with tempconfig({}):                                                       │
+│   124 │   │   │   │   │   scene = SceneClass()                                                   │
+│ ❱ 125 │   │   │   │   │   scene.render()                                                         │
+│   126 │   │   │   except Exception:                                                              │
+│   127 │   │   │   │   error_console.print_exception()                                            │
+│   128 │   │   │   │   sys.exit(1)                                                                │
+│                                                                                                  │
+│ /Users/danielung/miniconda3/envs/mlclub/lib/python3.11/site-packages/manim/scene/scene.py:237 in │
+│ render                                                                                           │
+│                                                                                                  │
+│    234 │   │   """                                                                               │
+│    235 │   │   self.setup()                                                                      │
+│    236 │   │   try:                                                                              │
+│ ❱  237 │   │   │   self.construct()                                                              │
+│    238 │   │   except EndSceneEarlyException:                                                    │
+│    239 │   │   │   pass                                                                          │
+│    240 │   │   except RerunSceneException:                                                       │
+│                                                                                                  │
+│ /Users/danielung/Desktop/projects/3b1bProj/temp_animation_20250516_145010.py:13 in construct     │
+│                                                                                                  │
+│    10 │   │   self.wait(2)                                                                       │
+│    11 │   │                                                                                      │
+│    12 │   │   layers = [                                                                         │
+│ ❱  13 │   │   │   ("Input Layer", END, Dot(get_colors()[0])),                                    │
+│    14 │   │   │   ("Embedding Layer", END, get_colors()[1]),                                     │
+│    15 │   │   │   ("Positional Encoding", END, get_colors()[2]),                                 │
+│    16 │   │   │   ("Attention", END, get_colors()[3]),                                           │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+NameError: name 'END' is not defined
+Error generating video: Command '['manim', '-qh', '-o', 'videos/animation_20250516_145010.mp4', 'temp_animation_20250516_145010.py', 'TransformerArchitecture']' returned non-zero exit status 1.
+
+Failed to generate video
+(mlclub) (base) danielung@daniels-mbp-6 3b1bProj % 

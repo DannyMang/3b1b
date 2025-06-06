@@ -2,16 +2,15 @@ generative coding model trained to ONLY generate 3B1B videos using https://githu
 
 update: we will use community edition found at https://github.com/ManimCommunity/manim/ since community version looks more polished
 
-CURRENT GOALS:
-- clean up dataset
-- prevent usage of llm with other irrelevant queries (perhaps refinetune)
-- look into other training techniques that may improve performance
-- how can we measure performance metrics of the model?
-- ensure output provides synthatically correct code
+Current Achievements:
+- Have first finetuned model @ https://huggingface.co/haidangung/qwen3-manim-16bit
+- LoRA weights can be found @ https://huggingface.co/haidangung/qwen3-manim-lora
 
-
-
-
+Current tasks:
+- Have not tested how good current finetuned model is, what ways can I measure performance metrics of model?
+- Need to re finetune or some other method to align model to do task given and not irrelevant tasks
+- Clean up dataset?
+- ensure output has working code
 
 
 - ALL OF GRANT"S VIDEO CODE CAN BE FOUND : https://github.com/3b1b/videos
