@@ -8,6 +8,9 @@ Current Achievements:
 
 Current tasks:
 - Have not tested how good current finetuned model is, what ways can I measure performance metrics of model?
+    - Create a standardized prompt set covering various mathematical visualization scenarios: basic geometric operations, function plotting, algebraic manipulations, and complex mathematical proofs. Test your fine-tuned model alongside GPT-4, Claude, and other code generation models to quantify improvement areas.
+
+    The evaluation script should capture multiple success criteria: compilation success rate, visual output accuracy, code elegance, and execution efficiency. This multi-dimensional assessment will provide insights into where your specialized fine-tuning delivers advantages over general-purpose models and identify specific weaknesses requiring targeted improvement.
 - Need to re finetune or some other method to align model to do task given and not irrelevant tasks
 - Clean up dataset?
 - ensure output has working code
