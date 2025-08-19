@@ -2,6 +2,7 @@ generative coding model trained to ONLY generate 3B1B videos using https://githu
 
 update: we will use community edition found at https://github.com/ManimCommunity/manim/ since community version looks more polished
 
+
 Current Achievements:
 - Have first finetuned model @ https://huggingface.co/haidangung/qwen3-manim-16bit
 - LoRA weights can be found @ https://huggingface.co/haidangung/qwen3-manim-lora
